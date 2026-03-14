@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zombie Forest 3D (Starter)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game-container" aria-label="3D game viewport"></div>
+
+      <!-- HUD is intentionally simple and centered for future expansion -->
+      <div id="hud" aria-label="HUD overlay">
+        <div class="hudPanel" role="group" aria-label="Stats">
+          <div class="hudRow">
+            <div class="hudItem"><span class="k">Score</span><span id="hud-score">0</span></div>
+            <div class="hudItem"><span class="k">Health</span><span id="hud-health">100</span></div>
+            <div class="hudItem"><span class="k">Wave</span><span id="hud-wave">1</span></div>
+            <div class="hudItem"><span class="k">Hand</span><span id="hud-hand">no hand</span></div>
+          </div>
+        </div>
+
+        <div id="game-over" aria-label="Game over message">
+          <div class="go-panel">
+            <div class="go-title">Game Over</div>
+            <div class="go-text">Zombies reached you. Click restart to try again.</div>
+            <button id="restart-btn" type="button">Restart</button>
+          </div>
+        </div>
+
+        <div id="damage-flash" aria-hidden="true"></div>
+
+        <div id="hand-cursor" aria-hidden="true"></div>
+
+        <video id="webcam-preview" autoplay muted playsinline aria-label="Webcam preview"></video>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

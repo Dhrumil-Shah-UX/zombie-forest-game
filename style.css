@@ -1,0 +1,188 @@
+:root {
+  color-scheme: dark;
+  --bg0: #030604;
+  --bg1: #050b07;
+  --panel: rgba(8, 14, 10, 0.55);
+  --panelLine: rgba(255, 255, 255, 0.14);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1000px 700px at 50% 30%, rgba(120, 255, 160, 0.06), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
+  overflow: hidden;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+}
+
+#game-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: radial-gradient(900px 600px at 50% 30%, rgba(120, 255, 160, 0.06), transparent 60%),
+    linear-gradient(180deg, rgba(5, 12, 8, 1), rgba(2, 6, 4, 1));
+}
+
+#game-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* HUD overlay: centered, pointer-events disabled for now */
+#hud {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.hudPanel {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--panelLine);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.hudRow {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.hudItem {
+  display: inline-flex;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.18);
+  min-width: 140px;
+  justify-content: space-between;
+}
+
+.hudItem .k {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#game-over {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(600px 400px at 50% 40%, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.82));
+  pointer-events: auto;
+}
+
+#game-over.show {
+  display: flex;
+}
+
+.go-panel {
+  padding: 16px 18px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(5, 10, 7, 0.86);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+  max-width: 320px;
+  text-align: center;
+}
+
+.go-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.go-text {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.go-panel button {
+  margin-top: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.go-panel button:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#damage-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 400px at 50% 40%, rgba(255, 0, 32, 0.22), rgba(255, 0, 0, 0.5));
+  opacity: 0;
+  pointer-events: none;
+}
+
+#webcam-preview {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
+  opacity: 0.85;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+/* Hand cursor: only live aiming reticle; visible when hand is stable. */
+#hand-cursor {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 248, 200, 0.9);
+  box-shadow: 0 0 12px rgba(255, 248, 200, 0.75);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  display: none;
+  z-index: 2;
+  transition: box-shadow 0.05s ease, transform 0.05s ease;
+}
+
+#hand-cursor.hit {
+  border-color: rgba(255, 248, 200, 1);
+  box-shadow: 0 0 18px rgba(255, 248, 200, 0.95);
+  transform: translate(-50%, -50%) scale(1.35);
+}
