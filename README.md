@@ -34,4 +34,3 @@ Any commit you push to the `main` branch triggers the GitHub Actions workflow to
 - deploy the `dist/` output to GitHub Pages
 
 Once the workflow completes, the live site updates automatically.
-
