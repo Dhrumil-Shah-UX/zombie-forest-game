@@ -30,27 +30,6 @@ Bring your thumb close to the index finger to shoot
 
 When the game detects that your thumb and index finger are close enough, it triggers a shot.
 
-### 3. Release to Shoot Again
-
-After shooting, move your thumb away from your index finger and then bring it close again to fire another shot.
-
-This prevents accidental continuous shooting and makes the gesture feel more intentional.
-
-### 4. Survive the Zombies
-
-Zombies will appear in the forest and move toward you. Aim at them using your index finger and shoot using the pinch gesture before they get too close.
-
-Your goal is to survive as long as possible and eliminate as many zombies as you can.
-
-## Controls
-
-| Action         | Gesture                                         |
-| -------------- | ----------------------------------------------- |
-| Aim            | Point with your index finger                    |
-| Shoot          | Bring thumb close to index finger               |
-| Stop shooting  | Move thumb away from index finger               |
-| Reposition aim | Move your pointing hand around the camera frame |
-
 ## Tips for Best Experience
 
 * Play in a well-lit room.
@@ -61,13 +40,6 @@ Your goal is to survive as long as possible and eliminate as many zombies as you
 * Avoid moving your hand too fast, as it may reduce tracking accuracy.
 * Allow camera permission when the browser asks for it.
 
-## Game Objective
-
-Survive the zombie attack in the forest by using hand gestures to aim and shoot. The better your hand tracking and timing, the longer you can survive.
-
-## Recommended Setup
-
-For the smoothest experience, play on a laptop or desktop with a working webcam. Make sure your browser supports camera access and that you have granted camera permissions before starting the game.
 
 
 ## Local development
